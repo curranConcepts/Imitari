@@ -27,8 +27,8 @@
       <div class="row">
         <%for(var i=0; i<comments.length; i++){ %>
           <div class="col-12 border border-dark gy-2 mt-5 p-2">
-          <h5><%=comments[i].user%></h5>
-          <p><%=comments[i].createdAt%></p>
+          <h5><%=comments[i].userName%></h5>
+          <!-- <p><%=comments[i].createdAt%></p> -->
         <p><%=comments[i].comment%></p>
           <%if(comments[i].user==user.id){ %>
             <form action="/comment/deleteComment/<%=comments[i]._id%>?_method=DELETE" method="POST" class="col-2 ">
