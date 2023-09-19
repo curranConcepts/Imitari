@@ -1,20 +1,42 @@
-# Install
+<h1 align="center">Welcome to Imitari 👋</h1>
+<p align="center">
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://twitter.com/codingCurran" target="_blank">
+    <img alt="Twitter: codingCurran" src="https://img.shields.io/twitter/follow/codingCurran.svg?style=social" />
+  </a>
+</p>
 
-`npm install`
+> A social media app to share AI generated artwork. 
 
----
+### ✨ [Demo]
+ <p align="center">
+   <a target="_blank" href="#">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW95endvOWNja2l0bDV3bXQxMWlmN293cnNqeTUxcDF2Ynh3eHR5YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8Q3EHkKBsPXdNGPybb/giphy.gif" width="50%" alt="Imitari"/>
+  </a>
+ </p>
 
-# Things to add
+## 🚀 Usage
 
-- Create a `.env` file in config folder and add the following as `key = value`
-  - PORT = 2121 (can be any port example: 3000)
-  - DB_STRING = `your database URI`
-  - CLOUD_NAME = `your cloudinary cloud name`
-  - API_KEY = `your cloudinary api key`
-  - API_SECRET = `your cloudinary api secret`
 
----
 
-# Run
+## Author
 
-`npm start`
+👤 **Austin Curran**
+
+* Website: https://austincurran.com/
+* Twitter: [@codingCurran](https://twitter.com/codingCurran)
+* Github: [@curranConcepts](https://github.com/curranConcepts)
+* LinkedIn: [@codingCurran](https://linkedin.com/in/codingCurran)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/curranConcepts/imitari/issues). 
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
