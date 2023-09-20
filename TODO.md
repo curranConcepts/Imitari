@@ -1,16 +1,22 @@
 **backend**
 
-- show usernames in comments 
 - show timestamp in post
 - show timestamp in comments
-- change templates from ejs to handlebars
-
+- add more keys to user modal
+    first and last name
+    user icon with cloudinary
+    birthdate
+    location
+    bio
+- add google to oauth
+- password recovery for reg email
 
 
 
 
 **frontend**
 
-- whole UI needs makeover
-    tailwindcss & daisy or other framework?
-    can I use my fun svg login?
+- update home page
+    add user icon
+    click button to show upload fields
+    show joined on date

@@ -3,64 +3,73 @@
   <div class="row justify-content-center mt-5">
     <div class="row justify-content-center">
       <div class="col-6">
-        <h2 class="text-center"><%= post.title %></h2>
-        <p class="text-center"><%= post.caption %></p>
-        <img class="img-fluid" src="<%= post.image%>" />
-        <div class="row col-12 mt-2 d-flex justify-content-between">
-         <div class="row col-10">
-          
-           <form
-             class="col-2"
-             action="/post/likePost/<%= post.id %>?_method=PUT"
-             method="POST"
-           >
-             <button class="btn btn-danger fa fa-heart" type="submit"></button>
-           </form>
-           <h3 class="col-1"><%= post.likes %></h3>
-          </div>
-          <div class="row col-2 d-flex justify-content-center">
-            <%if(post.user == user.id){ %>
-            <form
-              action="/post/deletePost/<%= post.id %>?_method=DELETE"
-              method="POST"
-              class="col-1"
-            >
-              <button class="btn btn-danger fa fa-trash" type="submit"></button>
-            </form>
-            <%}%>
+        <div class="card">
+          <div class="card-body">
+            <div class="media">
+                <h2 class="text-center align-self-end"><strong><%= post.title %></strong></h2>
+                <a href="/post/<%= post._id%>">
+                  <img class="img-fluid" src="<%= post.image%>">
+                </a>
+                <div class="row col-12 mt-2 justify-content-between">
+                  <form
+                     class="col-2"
+                     action="/post/likePost/<%= post.id %>?_method=PUT"
+                     method="POST"
+                    >
+                     <button class="btn btn-danger fa fa-heart" type="submit"></button>
+                  </form>
+                  <p class="col-2"><%= post.likes %> ♡</p>
+                  <p class="col-6 text-end"><%= post.userName %></p>
+                  <%if(post.user == user.id){ %>
+                    <form
+                      action="/post/deletePost/<%= post.id %>?_method=DELETE"
+                      method="POST"
+                      class="col-1"
+                    >
+                      <button class="btn btn-danger fa fa-trash" type="submit"></button>
+                    </form>
+                    <%}%>
+                </div>  
+                <p class="text-center"><%= post.caption %></p> 
+            </div>
           </div>
         </div>
       </div>
       <div class="col-6">
         <div class="row">
           <h3 class="col-12">Comments</h3>
+          <hr/>
+          <div class="col-12 justify-content-around">
+            <form action="/comment/createComment/<%= post.id %>" method="POST">
+              <div class="form-group">
+                <label for="comment"></label>
+                <textarea
+                  class="form-control"
+                  id="comment"
+                  name="comment"
+                  rows="3"
+                ></textarea>
+              </div>
+              <button type="submit" class="col-12 btn btn-dark">Comment</button>
+            </form>
+            </div>
+          </div>
           <%for(var i=0; i<comments.length; i++){ %>
-            <div class="col-12 bg-light border border-secondary gy-2 mt-3 p-2">
-              <h5 class="bg-white" ><%=comments[i].userName%></h5>
-              <!-- <p><%=comments[i].createdAt%></p> -->
-              <p><%=comments[i].comment%></p>
-              <%if(comments[i].user==user.id){ %>
-                <form action="/comment/deleteComment/<%=comments[i]._id%>?_method=DELETE" method="POST" class="col-2 ">
-                 <button class="btn btn-danger fa fa-trash" type="submit"></button>
-                </form>
-              <%}%>
+            <div class="card my-3">
+              <div class="card-body">
+                <div class="media">
+                  <h5><%=comments[i].userName%></h5>
+                  <p><%=comments[i].comment%></p>
+                  <%if(comments[i].user==user.id){ %>
+                    <form action="/comment/deleteComment/<%=comments[i]._id%>?_method=DELETE" method="POST" class="col-2 ">
+                      <button class="btn btn-danger fa fa-trash" type="submit"></button>
+                    </form>
+                  <%}%>
+                </div>
+              </div>
             </div>
           <%}%>
-        </div>
-        <div class="row">
-          <form action="/comment/createComment/<%= post.id %>" method="POST">
-            <div class="form-group">
-              <label for="comment"></label>
-              <textarea
-                class="form-control"
-                id="comment"
-                name="comment"
-                rows="3"
-              ></textarea>
-            </div>
-            <button type="submit" class="col-12 btn btn-primary">Comment</button>
-          </form>
-          </div>
+          <hr/>
         </div>
       </div>  
     </div>
@@ -68,3 +77,8 @@
 </div>
 
 <%- include('partials/footer') -%>
+
+
+
+
+        
