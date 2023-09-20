@@ -20,3 +20,5 @@
     add user icon
     click button to show upload fields
     show joined on date
+
+- add user profiles
