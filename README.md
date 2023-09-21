@@ -9,9 +9,9 @@
   </a>
 </p>
 
-> A social media app to share AI generated artwork. 
+> An Image based social media app for users to share photos. Users can also like and comment on posts. 
 
-### ✨ [Demo]
+### ✨ Demo https://imitari.fly.dev/
  <p align="center">
    <a target="_blank" href="#">
             <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW95endvOWNja2l0bDV3bXQxMWlmN293cnNqeTUxcDF2Ynh3eHR5YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8Q3EHkKBsPXdNGPybb/giphy.gif" width="50%" alt="Imitari"/>
@@ -20,7 +20,7 @@
 
 ## 🚀 Usage
 
-
+The application is free to use. just navigate to https://imitari.fly.dev/ and sign up! 
 
 ## Author
 
