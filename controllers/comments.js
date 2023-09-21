@@ -16,8 +16,8 @@ module.exports = {
     } catch (err) {
         console.log(err);
     }
-},
-deleteComment: async (req, res) => {
+  },
+  deleteComment: async (req, res) => {
     try {
         // Find post by id
         let comment = await Comment.findById({ _id: req.params.id });
@@ -25,6 +25,24 @@ deleteComment: async (req, res) => {
         // if req.user == comment.user
         await Comment.deleteOne({ _id: req.params.id });
         console.log("Deleted Comment");
+        res.redirect("/post/" + comment.post);
+    } catch (err) {
+        res.redirect("/profile");
+    }
+  },
+  updateComment: async (req, res) => {
+    try {
+        // Find post by id
+        let comment = await Comment.findById({ _id: req.params.id });
+        console.log({ comment })
+        // if req.user == comment.user
+        await Comment.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+              $set: { comment: req.body.comment },
+            }
+          );
+        console.log("Updated Comment");
         res.redirect("/post/" + comment.post);
     } catch (err) {
         res.redirect("/profile");

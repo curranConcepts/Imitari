@@ -10,6 +10,8 @@
     bio
 - add google to oauth
 - password recovery for reg email
+- add update operations for posts and comments.
+
 
 
 

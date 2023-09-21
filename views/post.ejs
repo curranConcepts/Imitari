@@ -61,8 +61,23 @@
                   <h5><%=comments[i].userName%></h5>
                   <p><%=comments[i].comment%></p>
                   <%if(comments[i].user==user.id){ %>
-                    <form action="/comment/deleteComment/<%=comments[i]._id%>?_method=DELETE" method="POST" class="col-2 ">
+                    <form action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE" method="POST" class="col-2 ">
                       <button class="btn btn-danger fa fa-trash" type="submit"></button>
+                    </form>
+                  <%}%>
+                  <%if(comments[i].user==user.id){ %>
+                    <form action="/comment/updateComment/<%= comments[i]._id %>?_method=PUT" method="POST">
+                      <div class="form-group">
+                        <label for="comment"></label>
+                        <textarea
+                          class="form-control"
+                          id="comment"
+                          name="comment"
+                          placeholder="Update your comment..."
+                          rows="3"
+                        ></textarea>
+                      </div>
+                      <button type="submit" class="col-12 btn btn-dark">Submit</button>
                     </form>
                   <%}%>
                 </div>

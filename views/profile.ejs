@@ -2,14 +2,15 @@
 <div class="container">
   <div class="row py-5">
     <div class="col-sm-12 col-md-4 p-2">
+      <hr />
       <div class="accordion" id="uploadAccordian">
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#upload" aria-expanded="true" aria-controls="upload">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#upload" aria-expanded="false" aria-controls="upload">
               Make a post
             </button>
           </h2>
-          <div id="upload" class="accordion-collapse collapse hide">
+          <div id="upload" class="accordion-collapse collapse">
             <div class="accordion-body">
               <form action="/post/createPost" enctype="multipart/form-data" method="POST">
                 <div class="mb-3">
@@ -26,6 +27,18 @@
                 </div>
                 <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
               </form>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Update Profile
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>this is where you will eddit your profile data.</p>
             </div>
           </div>
         </div>
