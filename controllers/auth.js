@@ -39,7 +39,7 @@ exports.postLogin = (req, res, next) => {
         return next(err);
       }
       req.flash("success", { msg: "Success! You are logged in." });
-      res.redirect(req.session.returnTo || "/profile");
+      res.redirect(req.session.returnTo || "/feed");
     });
   })(req, res, next);
 };
@@ -47,7 +47,7 @@ exports.postLogin = (req, res, next) => {
 exports.getGoogle = passport.authenticate("google", { scope: ["profile"] });
 
 exports.getGoogleCallback = passport.authenticate("google", {
-  failureRedirect: "/login",successRedirect: '/profile',});
+  failureRedirect: "/login",successRedirect: '/feed',});
 
 exports.logout = (req, res) => {
   req.logout(() => {
@@ -117,7 +117,7 @@ exports.postSignup = (req, res, next) => {
           if (err) {
             return next(err);
           }
-          res.redirect("/profile");
+          res.redirect("/feed");
         });
       });
     }

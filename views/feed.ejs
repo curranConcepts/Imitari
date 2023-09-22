@@ -2,6 +2,35 @@
 
   <div class="container">
     <div class="col-sm-12">
+      <div class="accordion col-sm-12 col-md-6" id="uploadAccordian">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#upload" aria-expanded="false" aria-controls="upload">
+              Make a post
+            </button>
+          </h2>
+          <div id="upload" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+                <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" name="title">
+                </div>
+                <div class="mb-3">
+                  <label for="caption" class="form-label">Caption</label>
+                  <textarea class="form-control" id="caption" name="caption"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="imgUpload" class="form-label">Image</label>
+                  <input type="file" class="form-control" id="imageUpload" name="file">
+                </div>
+                <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
       <h2>Feed</h2>
       <ul class="row list-unstyled" data-masonry='{"percentPosition": true }'>
         <% for(var i=0; i<posts.length; i++) {%>
