@@ -44,6 +44,11 @@ exports.postLogin = (req, res, next) => {
   })(req, res, next);
 };
 
+exports.getGoogle = passport.authenticate("google", { scope: ["profile"] });
+
+exports.getGoogleCallback = passport.authenticate("google", {
+  failureRedirect: "/login",successRedirect: '/profile',});
+
 exports.logout = (req, res) => {
   req.logout(() => {
     console.log('User has logged out.')
@@ -85,6 +90,8 @@ exports.postSignup = (req, res, next) => {
   });
 
   const user = new User({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
