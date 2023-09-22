@@ -9,15 +9,15 @@
                 <a href="/post/<%= post._id%>">
                   <img class="img-fluid" src="<%= post.image%>">
                 </a>
-                <div class="row col-12 mt-2 justify-content-between">
+                <div class="row col-12 mt-2">
                   <form
-                     class="col-2"
+                     class="col-1"
                      action="/post/likePost/<%= post.id %>?_method=PUT"
                      method="POST"
                     >
-                     <button class="btn btn-danger fa fa-heart" type="submit"></button>
+                     <button class="btn btn-danger-subtle fa fa-heart" type="submit"></button>
                   </form>
-                  <p class="col-2"><%= post.likes %> ♡</p>
+                  <p class="col-2 flex-grow-1"><%= post.likes %></p>
                   <p class="col-6 text-end"><%= post.userName %></p>
                   <%if(post.user == user.id){ %>
                     <form
@@ -56,14 +56,15 @@
           <hr/>
           <h3 class="col-12">Comments</h3> 
           <%for(var i=0; i<comments.length; i++){ %>
-            <div class="card my-3">
+            <div class="card p-1 my-2">
               <div class="card-body">
-                <div class="media">
                   <h5><%=comments[i].userName%></h5>
-                  <div class="card card-body mb-2">
+                  <hr />
+                  <div class="mb-2 mt-4">
                     <p><%=comments[i].comment%></p>
                   </div>
                   <%if(comments[i].user==user.id){ %>
+                    <hr />
                     <div class="row justify-content-center">  
                       <div class="col-6">
                         <button class="btn btn-primary fa fa-edit col-12" type="button" data-bs-toggle="collapse" data-bs-target="#editComment" aria-expanded="false" aria-controls="editComment"></button>
@@ -87,7 +88,7 @@
                       </form>
                   </div> 
                     <%}%>   
-                </div>
+
               </div>
             </div>
           <%}%>
