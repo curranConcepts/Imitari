@@ -10,6 +10,7 @@ module.exports = {
             post: req.params.id,
             user: req.user.id,
             userName: req.user.userName,
+            image: req.user.image,
         });
     console.log("Comment has been added!");
     res.redirect(`/post/${req.params.id}`);

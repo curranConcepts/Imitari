@@ -15,8 +15,7 @@ module.exports = function (passport) {
         }
         if (!user.password) {
           return done(null, false, {
-            msg:
-              "Your account was registered using a sign-in provider. To enable password login, sign in using a provider, and then set a password under your user profile.",
+            msg: "Your account was registered using a sign-in provider. To enable password login, sign in using a provider, and then set a password under your user profile.",
           });
         }
         user.comparePassword(password, (err, isMatch) => {
@@ -37,7 +36,7 @@ module.exports = function (passport) {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "/auth/google/callback",
+        callbackURL: "https://imitari.fly.dev/auth/google/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
         const newUser = {

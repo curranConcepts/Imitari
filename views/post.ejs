@@ -11,7 +11,7 @@
                 </a>
                 <div class="row col-12 mt-2">
                   <form
-                     class="col-1"
+                     class="col"
                      action="/post/likePost/<%= post.id %>?_method=PUT"
                      method="POST"
                     >
@@ -58,10 +58,17 @@
           <%for(var i=0; i<comments.length; i++){ %>
             <div class="card p-1 my-2">
               <div class="card-body">
-                  <h5><%=comments[i].userName%></h5>
+                <div class="row">
+                  <div class="col-2">
+                    <img src="<%= comments[i].image %>" class="img-flex rounded-circle" width="50" height="50">
+                  </div>
+                  <div class="col-10">
+                    <p class="fs-2"> <%= comments[i].userName %></p>
+                   </div>
+                </div>
                   <hr />
                   <div class="mb-2 mt-4">
-                    <p><%=comments[i].comment%></p>
+                    <p class="fw-lighter"><%=comments[i].comment%></p>
                   </div>
                   <%if(comments[i].user==user.id){ %>
                     <hr />
