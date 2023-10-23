@@ -1,71 +1,28 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row py-5">
-    <div class="col-sm-12 col-md-4 p-2">
-      <hr />
-      <div class="accordion" id="uploadAccordian">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#upload" aria-expanded="false" aria-controls="upload">
-              Make a post
-            </button>
-          </h2>
-          <div id="upload" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-                <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
-                </div>
-                <div class="mb-3">
-                  <label for="caption" class="form-label">Caption</label>
-                  <textarea class="form-control" id="caption" name="caption"></textarea>
-                </div>
-                <div class="mb-3">
-                  <label for="imgUpload" class="form-label">Image</label>
-                  <input type="file" class="form-control" id="imageUpload" name="file">
-                </div>
-                <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-              </form>
+
+<div class="col-sm-12 col-md-10 bg-dark-subtle">
+  <ul class="row list-unstyled" data-masonry='{"percentPosition": true }'>
+    <% for(var i=0; i<posts.length; i++) {%>
+    <li class="col-sm-12 col-md-6 justify-content-between mt-4">
+      <div class="card">
+        <a class="d-flex align-items-stretch" href="/post/<%= posts[i]._id%>">
+          <img class="card-img-top" src="<%= posts[i].image%>" height="400px" style="object-fit: contain;">
+        </a>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="row justify-content-between">
+              <p class="col-6"><%= posts[i].userName %></p>
+              <p class="col-3 text-end"><%= posts[i].likes %> ♡</p>
             </div>
+          </li>
+          <div class="card-body">
+            <h5 class="card-title"><%= posts[i].title %></h5>
+            <p class="card-text"><%= posts[i].caption %></p>
           </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Update Profile
-            </button>
-          </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <p>this is where you will eddit your profile data.</p>
-            </div>
-          </div>
-        </div>
       </div>
-    <hr />
-    </div>
-    <div class="col-sm-12 col-md-8">
-      <h2>My Posts</h2>
-      <ul class="row list-unstyled" data-masonry='{"percentPosition": true }'>
-        <% for(var i=0; i<posts.length; i++) {%>
-        <li class="col-sm-12 col-md-6 justify-content-between mt-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="media">
-                <h2 class="text-center align-self-end"><strong><%= posts[i].title %></strong></h2>
-                <a href="/post/<%= posts[i]._id%>">
-                  <img class="img-fluid" src="<%= posts[i].image%>">
-                </a>
-                <p><%= posts[i].likes %> ♡</p>
-              </div>
-            </div>
-          </div>
-        </li>
-        <% } %>
-      </ul> 
-    </div>  
-  </div>
+    </li>
+    <% } %>
+  </ul>
 </div>
 
 <%- include('partials/footer') -%>

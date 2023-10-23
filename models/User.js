@@ -3,36 +3,35 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
   googleId: {
-    type: String, 
+    type: String,
     unique: true,
   },
   userName: {
-    type: String, 
+    type: String,
     unique: true,
-    required: true
+    required: true,
   },
   firstName: {
-    type: String, 
-    // required: true 
+    type: String,
+    // required: true
   },
   lastName: {
-    type: String, 
-    // required: true 
+    type: String,
+    // required: true
   },
   email: {
-    type: String, 
-    unique: true,
+    type: String,
   },
   image: {
-    type: String 
+    type: String,
   },
   password: {
-    type: String
+    type: String,
   },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 // Password hash middleware.
